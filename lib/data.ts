@@ -32,7 +32,7 @@ export const profile = {
   region: "Sindh",
   country: "Pakistan",
   about: [
-    "Heyyy, I am a FAST-NUCES Software Engineer turning messy real-world workflows into live products that people actually rely on.",
+    "Heyyy, I am a FAST-NUCES Software Engineer turning messy real-world workflows into live products.",
     "Shipped numerous full-stack web and mobile builds end-to-end with TypeScript, React, React Native, Node.js, Express, PostgreSQL, and Python, backed by algorithmic rigor and IT risk assurance.",
     "Now pushing into AI research and ML, tracking cutting-edge AI breakthroughs to build smarter, high-impact systems.",
   ],
