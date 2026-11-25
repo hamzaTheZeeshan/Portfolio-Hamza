@@ -1,7 +1,7 @@
 @import "tailwindcss";
 
 :root {
-  --bg: #0a0a0a;
+  --bg: #1D1E20;
   --fg: #f5f5f4;
   --muted: #a1a1aa;
   --soft: #8b8b96;
@@ -11,19 +11,23 @@
   --card: #101010;
   --chip: #161616;
 }
+
 :root[data-theme="light"] {
-  --bg: #fafaf9;
+  --bg: #f4f0db;
   --fg: #0a0a0a;
   --muted: #52525b;
   --soft: #6b6b75;
-  --line: rgba(0, 0, 0, 0.12);
-  --stripe: rgba(0, 0, 0, 0.06);
-  --hover: rgba(0, 0, 0, 0.05);
-  --card: #ffffff;
-  --chip: #f0f0ee;
+  --line: rgba(0, 0, 0, 0.4);
+  --stripe: rgba(0, 0, 0, 0.4);
+  --hover: rgba(0, 0, 0, 0.12);
+  --card: #ebe4c8;
+  /* Warm parchment instead of near-white #fffaf1 */
+  --chip: #e2d9b8;
+  /* Deeper sand tone instead of cool gray #f0f0ee */
 }
 
-@theme inline {
+
+inline {
   --color-bg: var(--bg);
   --color-fg: var(--fg);
   --color-muted: var(--muted);
@@ -36,12 +40,21 @@
   --font-mono: var(--font-jetbrains), monospace;
 }
 
-html { scroll-padding-top: 48px; }
+html {
+  scroll-padding-top: 48px;
+}
+
 body {
   background: var(--bg);
   color: var(--fg);
   font-family: var(--font-sans);
   transition: background 0.3s, color 0.3s;
+}
+
+@media (min-width: 1024px) {
+  body {
+    zoom: 110%;
+  }
 }
 
 /* page column with dashed side rails */
@@ -52,20 +65,21 @@ body {
   border-left: 1px dashed var(--line);
   border-right: 1px dashed var(--line);
 }
+
 .stripe {
   height: 28px;
   border-top: 1px solid var(--line);
   border-bottom: 1px solid var(--line);
-  background-image: repeating-linear-gradient(
-    45deg, var(--stripe) 0 1px, transparent 1px 6px
-  );
+  background-image: repeating-linear-gradient(45deg, var(--stripe) 0 1px, transparent 1px 6px);
 }
+
 .section-title {
   font-family: var(--font-serif);
   font-size: 1.5rem;
   padding: 1rem 1.5rem;
   border-bottom: 1px solid var(--line);
 }
+
 .chip {
   font-family: var(--font-mono);
   font-size: 0.72rem;
@@ -75,6 +89,7 @@ body {
   border-radius: 5px;
   color: var(--muted);
 }
+
 .badge {
   font-family: var(--font-mono);
   font-size: 0.65rem;
@@ -83,6 +98,7 @@ body {
   border-radius: 4px;
   border: 1px solid;
 }
+
 .banner-grid {
   background:
     radial-gradient(circle at 70% 30%, rgba(99, 140, 255, 0.35), transparent 50%),
@@ -91,34 +107,121 @@ body {
     repeating-linear-gradient(90deg, var(--stripe) 0 1px, transparent 1px 14px),
     var(--card);
 }
-@keyframes blink { 50% { opacity: 0.25; } }
-.rec-dot { animation: blink 1.2s infinite; }
 
-:focus-visible { outline: 2px solid var(--fg); outline-offset: 2px; border-radius: 4px; }
+@keyframes blink {
+  50% {
+    opacity: 0.25;
+  }
+}
+
+.rec-dot {
+  animation: blink 1.2s infinite;
+}
+
+:focus-visible {
+  outline: 2px solid var(--fg);
+  outline-offset: 2px;
+  border-radius: 4px;
+}
 
 @media (prefers-reduced-motion: reduce) {
-  .rec-dot { animation: none; }
-  *, *::before, *::after { transition-duration: 0.01ms !important; }
+  .rec-dot {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    transition-duration: 0.01ms !important;
+  }
 }
 
 /* cursor-following glow on cards (driven by CursorFx via --mx/--my) */
-.spot { position: relative; }
+.spot {
+  position: relative;
+}
+
 .spot::after {
-  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
-  opacity: 0; transition: opacity 0.3s;
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.3s;
   background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), rgba(110, 140, 255, 0.14), transparent 65%);
 }
-.spot:hover::after { opacity: 1; }
+
+.spot:hover::after {
+  opacity: 1;
+}
+
 :root[data-theme="light"] .spot::after {
   background: radial-gradient(240px circle at var(--mx, 50%) var(--my, 50%), rgba(60, 90, 220, 0.10), transparent 65%);
 }
-@media (pointer: coarse), (prefers-reduced-motion: reduce) { .spot::after { display: none; } }
+
+@media (pointer: coarse),
+(prefers-reduced-motion: reduce) {
+  .spot::after {
+    display: none;
+  }
+}
 
 /* print / PDF: hide chrome, render the resume on white */
 @media print {
-  @page { size: A4; margin: 12mm; }
-  html, body { background: #fff !important; }
-  header.sticky, canvas, .no-print, a[href="#main"], .stripe { display: none !important; }
-  .rail { border: 0 !important; max-width: none !important; }
-  .resume { padding: 0 !important; font-size: 11.5px; }
+  @page {
+    size: A4;
+    margin: 12mm;
+  }
+
+  html,
+  body {
+    background: #fff !important;
+  }
+
+  header.sticky,
+  canvas,
+  .no-print,
+  a[href="#main"],
+  .stripe {
+    display: none !important;
+  }
+
+  .rail {
+    border: 0 !important;
+    max-width: none !important;
+  }
+
+  .resume {
+    padding: 0 !important;
+    font-size: 11.5px;
+  }
+}
+
+html {
+  scrollbar-width: thin;
+  scrollbar-color: rgba(255, 255, 255, 0.18) transparent;
+}
+::-webkit-scrollbar { width: 10px; }
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.15);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: content-box;
+  transition: background 0.2s;
+}
+::-webkit-scrollbar-thumb:hover { background-color: rgba(255, 255, 255, 0.35); }
+::-webkit-scrollbar-thumb:active { background-color: rgba(52, 211, 153, 0.7); }
+
+@keyframes drawStroke {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+.signature-path {
+  stroke-dasharray: 1000;
+  stroke-dashoffset: 1000;
+  animation: drawStroke 2s ease-in-out forwards;
 }

@@ -6,12 +6,18 @@ import { motion } from "framer-motion";
 import { Search, Sun, Moon } from "lucide-react";
 import { profile } from "@/lib/data";
 import { withBase } from "@/lib/paths";
+import { Alex_Brush } from 'next/font/google';
+import { DrawnName } from "./DrawnName";
+
+const signatureFont = Alex_Brush({
+  weight: '400',
+  subsets: ['latin'],
+});
 
 const links = [
   { id: "home", label: "Home", href: "/" },
   { id: "projects", label: "Projects", href: "/#projects" },
   { id: "experience", label: "Experience", href: "/#experience" },
-  { id: "blog", label: "Blog", href: "/blog" },
   { id: "contact", label: "Contact", href: "/#contact" },
 ];
 
@@ -38,7 +44,7 @@ export default function Navbar({ onSearch }: { onSearch: () => void }) {
     try {
       const t = localStorage.getItem("theme");
       if (t === "light") document.documentElement.dataset.theme = "light";
-    } catch {}
+    } catch { }
   }, []);
 
   // Scroll-spy by position: the active item is the last section whose top has passed 40% of the viewport.
@@ -84,38 +90,46 @@ export default function Navbar({ onSearch }: { onSearch: () => void }) {
   const toggle = () => {
     const next = document.documentElement.dataset.theme === "light" ? "dark" : "light";
     document.documentElement.dataset.theme = next;
-    try { localStorage.setItem("theme", next); } catch {}
+    try { localStorage.setItem("theme", next); } catch { }
   };
 
   return (
-    <header className="sticky top-0 z-40 border-b border-line bg-bg/80 backdrop-blur">
-      <div className="rail flex h-12 items-center justify-between gap-2 px-4 sm:px-6">
-        <Link href="/" onClick={(e) => go(e, links[0])} className="hidden font-serif text-xl min-[520px]:block">{profile.short}</Link>
-        <nav aria-label="Primary" className="ml-auto flex items-center gap-2.5 text-[13px] sm:gap-5">
-          {links.map((l) => (
-            <Link
-              key={l.id}
-              href={l.href}
-              onClick={(e) => go(e, l)}
-              aria-current={active === l.id ? "page" : undefined}
-              className={`relative pb-0.5 transition-colors ${active === l.id ? "text-fg" : "text-muted hover:text-fg"}`}
-            >
-              {l.label}
-              {active === l.id && (
-                <motion.span layoutId="nav-underline" transition={{ type: "spring", stiffness: 500, damping: 40 }}
-                  className="absolute inset-x-0 -bottom-px h-px bg-fg" />
-              )}
-            </Link>
-          ))}
-          <button onClick={onSearch} aria-label="Search" className="grid size-7 place-items-center rounded-full border border-line text-muted hover:text-fg sm:size-8">
-            <Search size={14} />
-          </button>
-          <button onClick={toggle} aria-label="Toggle theme" className="grid size-7 place-items-center rounded-full border border-line text-muted hover:text-fg sm:size-8">
-            <Sun size={14} className="in-data-[theme=light]:hidden" />
-            <Moon size={14} className="hidden in-data-[theme=light]:block" />
-          </button>
-        </nav>
-      </div>
-    </header>
-  );
+  <header className="sticky top-0 z-40 border-b border-line bg-bg/80 backdrop-blur">
+    <div className="rail relative flex h-12 items-center justify-between gap-2 px-4 sm:px-6">
+      {/* Name: centered on mobile, left-aligned from sm up */}
+      <Link
+        href="/"
+        onClick={(e) => go(e, links[0])}
+        className="absolute left-1/2 -translate-x-1/2 sm:static sm:translate-x-0 block transition-all duration-300 ease-out hover:scale-105 hover:-rotate-2 hover:text-blue-500 active:scale-95"
+      >
+        <DrawnName text={profile.name} className={signatureFont.className} />
+      </Link>
+
+      <nav aria-label="Primary" className="ml-auto flex items-center gap-2.5 text-[13px] sm:gap-5">
+        {links.map((l) => (
+          <Link
+            key={l.id}
+            href={l.href}
+            onClick={(e) => go(e, l)}
+            aria-current={active === l.id ? "page" : undefined}
+            className={`relative hidden pb-0.5 transition-colors sm:block ${active === l.id ? "text-fg" : "text-muted hover:text-fg"}`}
+          >
+            {l.label}
+            {active === l.id && (
+              <motion.span layoutId="nav-underline" transition={{ type: "spring", stiffness: 500, damping: 40 }}
+                className="absolute inset-x-0 -bottom-px h-px bg-fg" />
+            )}
+          </Link>
+        ))}
+        <button onClick={onSearch} aria-label="Search" className="hidden size-8 place-items-center rounded-full border border-line text-muted hover:text-fg sm:grid">
+          <Search size={14} />
+        </button>
+        <button onClick={toggle} aria-label="Toggle theme" className="grid size-7 place-items-center rounded-full border border-line text-muted hover:text-fg sm:size-8">
+          <Sun size={14} className="in-data-[theme=light]:hidden" />
+          <Moon size={14} className="hidden in-data-[theme=light]:block" />
+        </button>
+      </nav>
+    </div>
+  </header>
+);
 }

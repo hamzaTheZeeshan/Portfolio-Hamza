@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Instrument_Serif, Inter, JetBrains_Mono } from "next/font/google";
 import Chrome from "@/components/Chrome";
 import CursorFx from "@/components/CursorFx";
+import ScrollProgress from "@/components/ScrollProgress";
 import { profile } from "@/lib/data";
 import { NOINDEX, SITE_URL, site } from "@/lib/site";
 import "./globals.css";
@@ -60,6 +61,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
         <a href="#main" className="sr-only focus:not-sr-only focus:fixed focus:left-3 focus:top-3 focus:z-[60] focus:rounded-md focus:bg-fg focus:px-3 focus:py-2 focus:text-bg">
           Skip to content
         </a>
+        <ScrollProgress />
         <Chrome>{children}</Chrome>
         <CursorFx />
       </body>

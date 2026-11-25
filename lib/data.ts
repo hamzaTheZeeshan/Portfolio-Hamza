@@ -1,32 +1,45 @@
+import type { IconType } from "react-icons";
+import {
+  SiJavascript, SiTypescript, SiPython, SiCplusplus, SiHtml5, SiCss, SiReact, SiExpo,
+  SiTailwindcss, SiNodedotjs, SiExpress, SiDjango, SiNumpy, SiScikitlearn, SiMongoose,
+  SiGoogle, SiMysql, SiPostgresql, SiMongodb, SiSupabase, SiGit, SiGithub, SiDocker,
+  SiVite, SiPostman, SiIntellijidea,
+} from "react-icons/si";
+import { FaJava, FaAws } from "react-icons/fa";
+import { FiCpu, FiCode } from "react-icons/fi";
+import { VscVscode } from "react-icons/vsc";
+
 /**
- * All personal content for the home page lives here. Replace the sample values with your own.
+ * Personal content for Hamza Zeeshan's portfolio site.
  * Case studies and blog posts live in content/work.json and content/blog.json.
  */
+
 export const profile = {
-  name: "Alex Morgan",
-  short: "Alex",
-  role: "Full Stack Developer",
-  location: "Anywhere, Earth",
-  timezone: "UTC",
-  email: "hello@example.com",
-  github: "https://github.com/octocat",
-  githubUser: "octocat", // powers the GitHub activity graph
-  linkedin: "https://www.linkedin.com/in/your-handle",
-  x: "https://x.com/your_handle",
+  name: "Hamza Zeeshan",
+  short: "Hamza",
+  role: "Junior SWE Student at FAST & Full Stack Developer",
+  location: "Karachi, Pakistan",
+  university: "FAST-NUCES",
+  timezone: "Asia/Karachi",
+  email: "hamza.zeeshan7163@gmail.com",
+  github: "https://github.com/hamzaTheZeeshan",
+  githubUser: "hamzaTheZeeshan", // powers the GitHub activity graph
+  linkedin: "https://www.linkedin.com/in/hamza-zeeshan-0a1407332/",
+  x: "https://x.com/HamzaZe97656485",
   resume: "/resume", // the generated /resume page; point to your own PDF URL if you prefer
-  avatar: "/img/avatar.jpeg",
+  avatar: "/img/hamza1.jpeg",
   // Optional, used for structured data. Leave empty strings to omit.
-  region: "",
-  country: "",
+  region: "Sindh",
+  country: "Pakistan",
   about: [
-    "Hi, I'm Alex, a full-stack developer who enjoys building products that pair clean interfaces with solid, scalable backends.",
-    "I work mostly with TypeScript, React, Next.js, Node.js and PostgreSQL, and I like taking an idea from a rough sketch all the way to a deployed product.",
-    "This is sample content from the quietfolio template. Edit lib/data.ts, content/work.json and content/blog.json to make it yours.",
+    "Hi, I'm Hamza, a Software Engineering student at FAST-NUCES obsessed with shipping products that solve real-world problems.",
+    "I take ideas from rough sketches to live, scalable applications—building across the entire stack with TypeScript, React, React Native, Node.js, Express, PostgreSQL, and Python.",
+    "Backed by hands-on experience in full-stack web and mobile development, algorithmic optimization, and IT risk assurance, I build software that performs under pressure.",
   ],
   snapshot: [
-    "Building full-stack products.",
-    "Designing clean, fast interfaces.",
-    "Writing about engineering.",
+    "Building full-stack web & mobile apps.",
+    "Integrating AI & on-device analytics.",
+    "Algorithmic problem-solving.",
     "Always learning something new.",
   ],
 };
@@ -49,78 +62,136 @@ export const projects: {
   /** Path of a case study in content/work.json, e.g. "/work/northwind-dashboard". */
   caseStudy?: string;
 }[] = [
-  {
-    title: "Northwind Dashboard",
-    image: "/img/projects/northwind-dashboard.jpg",
-    year: "2026",
-    category: "Web",
-    featured: true,
-    status: "LIVE",
-    description:
-      "A sample analytics dashboard: real-time charts, role-based access and CSV export, built as a fast single-page app on a typed API.",
-    tags: ["React", "TypeScript", "Node.js", "PostgreSQL"],
-    live: "https://example.com",
-    repo: "https://github.com/octocat/Hello-World",
-    caseStudy: "/work/northwind-dashboard",
-  },
-  {
-    title: "Pocket Budget",
-    image: "/img/projects/pocket-budget.jpg",
-    year: "2025",
-    category: "Mobile",
-    featured: true,
-    status: "LIVE",
-    description:
-      "A sample personal-finance app that works offline first: log spending in seconds and sync when a connection returns.",
-    tags: ["React Native", "SQLite", "TypeScript"],
-    live: "https://example.com",
-    caseStudy: "/work/pocket-budget",
-  },
-  {
-    title: "Plainfile CLI",
-    image: "/img/projects/plainfile-cli.jpg",
-    year: "2025",
-    category: "Tooling",
-    featured: true,
-    status: "LIVE",
-    description:
-      "A sample command-line tool that keeps folders of plain text files in sync, with conflict resolution and a dry-run mode.",
-    tags: ["Node.js", "CLI", "TypeScript"],
-    repo: "https://github.com/octocat/Hello-World",
-    caseStudy: "/work/plainfile-cli",
-  },
-  {
-    title: "Orbit Notes",
-    image: "/img/projects/orbit-notes.jpg",
-    year: "2026",
-    category: "Desktop",
-    status: "WIP",
-    description:
-      "A sample desktop notes app with local-first storage and instant search. This entry has no case study, which is fine.",
-    tags: ["Electron", "React", "SQLite"],
-    repo: "https://github.com/octocat/Hello-World",
-  },
-];
+    {
+      title: "Shadi Seat Maxxing",
+      image: "/img/projects/shadimaxxing1.jpg",
+      year: "2026",
+      category: "Web",
+      featured: true,
+      status: "LIVE",
+      description:
+        "A wedding seating planner that solves guest placement as a constraint problem with OR-Tools, plus an interactive hall designer.",
+      tags: ["React", "TypeScript", "Django", "OR-Tools CP-SAT", "React-Konva", "Zustand", "Zod"],
+      live: "https://shadi-seat-maxxing-coral.vercel.app/",
+      repo: "https://github.com/hamzaTheZeeshan/ShadiSeatMaxxing",
+      caseStudy: "/work/shadi-seat-maxxing",
+    },
+    {
+      title: "Receiptify",
+      image: "/img/projects/receiptify1.jpg",
+      year: "2026",
+      category: "Mobile",
+      featured: true,
+      status: "LIVE",
+      description:
+        "An AI-powered mobile app using Gemini API to automatically extract transaction details, sender/receiver info, and timestamps from photographed receipts.",
+      tags: ["React Native", "Expo", "TypeScript", "Node.js", "Express.js", "PostgreSQL", "Gemini API"],
+      live: "https://lnkd.in/d2jsEgvx",
+      repo: "https://lnkd.in/d4Zva2n7",
+      caseStudy: "/work/receiptify",
+    },
+    {
+      title: "InstaInsights",
+      image: "/img/projects/instainsights2.jpg",
+      year: "2025",
+      category: "Web",
+      featured: true,
+      status: "LIVE",
+      description:
+        "A fully browser-based, zero-backend Instagram chat analytics app processing multi-inbox ZIP exports locally on-device with activity heatmaps and search.",
+      tags: ["React", "TypeScript", "Vite", "Recharts", "Tailwind CSS"],
+      live: "https://insta-insights-nu.vercel.app/",
+      repo: "https://github.com/hamzaTheZeeshan/InstaInsights",
+      caseStudy: "/work/insta-insights",
+    },
+    {
+      title: "Word2Vec Visualizer",
+      image: "/img/projects/word2vec1.jpg",
+      year: "2025",
+      category: "Tooling",
+      featured: true,
+      status: "LIVE",
+      description:
+        "A from-scratch implementation of Word2Vec (Skip-Gram with Negative Sampling) in Python/NumPy with an interactive t-SNE word embedding visualization.",
+      tags: ["Python", "NumPy", "scikit-learn", "React", "TypeScript"],
+      live: "https://word2-vec.vercel.app/",
+      repo: "https://github.com/Habib332/Word2Vec",
+      caseStudy: "/work/word2vec",
+    },
+    {
+      title: "Alamgir Welfare Trust System",
+      image: "/img/projects/awtsystem.jpg",
+      year: "2025",
+      category: "Web",
+      featured: false,
+      status: "LIVE",
+      description:
+        "A full-stack web application tracking donors, donation records, active campaigns, and auction events in real time.",
+      tags: ["React", "TypeScript", "Node.js", "MySQL"],
+      live: "https://awt-system-edq6.vercel.app/",
+      repo: "https://github.com/hamzaTheZeeshan/AWT-System",
+      caseStudy: "/work/awt-system",
+    },
+  ];
 
 export const experience = [
   {
-    role: "Senior Full Stack Developer",
-    company: "Acme Corp",
-    period: "2023 – Present",
-    body: "Sample entry. Lead a small team building customer-facing web products, from architecture and APIs to CI/CD and performance budgets.",
-  },
-  {
-    role: "Full Stack Developer",
-    company: "Globex",
-    period: "2020 – 2023",
-    body: "Sample entry. Built and shipped internal tools and a public dashboard used by thousands of people every week.",
+    role: "Technical Consultation and Risk Assurance Intern",
+    company: "A. F. Ferguson & Co. (PwC Pakistan)",
+    period: "Summer 2026",
+    body: "Evaluated IT infrastructure, security controls, and change management frameworks for blue-chip clients including National Refinery, Lucky Cement, and Thal Limited. Tested IT General Controls (ITGCs) aligned with ISO 31000 across database and infrastructure environments.",
   },
 ];
 
-export const stackGroups: Record<string, string[]> = {
-  Languages: ["TypeScript", "JavaScript", "Python", "SQL"],
-  Frontend: ["React", "Next.js", "Tailwind CSS", "Framer Motion"],
-  Backend: ["Node.js", "PostgreSQL", "Redis", "GraphQL", "REST"],
-  "DevOps & Cloud": ["Docker", "GitHub Actions", "Vercel", "Netlify"],
-  Tools: ["Git", "Figma", "Playwright", "Vitest"],
+export type Skill = {
+  name: string;
+  category: string;
+  Icon: IconType;
+  color?: string; // brand color; omit for icons that should follow the theme
 };
+
+export const skills: Skill[] = [
+  // Languages
+  { name: "JavaScript", category: "Language", Icon: SiJavascript, color: "#F7DF1E" },
+  { name: "TypeScript", category: "Language", Icon: SiTypescript, color: "#3178C6" },
+  { name: "Python", category: "Language", Icon: SiPython, color: "#3776AB" },
+  { name: "Java", category: "Language", Icon: FaJava, color: "#ED8B00" },
+  { name: "C/C++", category: "Language", Icon: SiCplusplus, color: "#00599C" },
+  { name: "x86 Assembly", category: "Language", Icon: FiCpu },
+  { name: "HTML5", category: "Frontend", Icon: SiHtml5, color: "#E34F26" },
+  { name: "CSS3", category: "Styling", Icon: SiCss, color: "#1572B6" },
+  // Frameworks
+  { name: "React", category: "Frontend", Icon: SiReact, color: "#61DAFB" },
+  { name: "React Native", category: "Mobile", Icon: SiReact, color: "#61DAFB" },
+  { name: "Expo", category: "Mobile", Icon: SiExpo },
+  { name: "Tailwind CSS", category: "Styling", Icon: SiTailwindcss, color: "#06B6D4" },
+  { name: "Node.js", category: "Backend", Icon: SiNodedotjs, color: "#5FA04E" },
+  { name: "Express", category: "Backend", Icon: SiExpress },
+  { name: "Django", category: "Backend", Icon: SiDjango, color: "#44B78B" },
+  // Libraries
+  { name: "NumPy", category: "Library", Icon: SiNumpy, color: "#4DABCF" },
+  { name: "scikit-learn", category: "Library", Icon: SiScikitlearn, color: "#F7931E" },
+  { name: "Mongoose", category: "Library", Icon: SiMongoose, color: "#CC3333" },
+  { name: "OR-Tools", category: "Optimization", Icon: SiGoogle, color: "#4285F4" },
+  // Databases
+  { name: "MySQL", category: "Database", Icon: SiMysql, color: "#4479A1" },
+  { name: "PostgreSQL", category: "Database", Icon: SiPostgresql, color: "#4169E1" },
+  { name: "MongoDB", category: "Database", Icon: SiMongodb, color: "#47A248" },
+  { name: "Supabase", category: "Database", Icon: SiSupabase, color: "#3FCF8E" },
+  // Tools
+  { name: "Git", category: "Tools", Icon: SiGit, color: "#F05032" },
+  { name: "GitHub", category: "Tools", Icon: SiGithub },
+  { name: "Docker", category: "DevOps", Icon: SiDocker, color: "#2496ED" },
+  { name: "AWS (basics)", category: "Cloud", Icon: FaAws, color: "#FF9900" },
+  { name: "Vite", category: "Tooling", Icon: SiVite, color: "#646CFF" },
+  { name: "Postman", category: "Tools", Icon: SiPostman, color: "#FF6C37" },
+  { name: "VS Code", category: "Editor", Icon: VscVscode, color: "#007ACC" },
+  { name: "Visual Studio", category: "Editor", Icon: FiCode, color: "#8661C5" },
+  { name: "IntelliJ IDEA", category: "Editor", Icon: SiIntellijidea },
+];
+
+// Kept so anything still importing `stackGroups` keeps working: derived from `skills`, grouped by category.
+export const stackGroups: Record<string, string[]> = skills.reduce<Record<string, string[]>>((acc, s) => {
+  (acc[s.category] ??= []).push(s.name);
+  return acc;
+}, {});
