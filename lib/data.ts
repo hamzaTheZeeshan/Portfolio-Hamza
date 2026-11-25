@@ -32,9 +32,9 @@ export const profile = {
   region: "Sindh",
   country: "Pakistan",
   about: [
-    "Hi, I'm Hamza, a Software Engineering student at FAST-NUCES obsessed with shipping products that solve real-world problems.",
-    "I take ideas from rough sketches to live, scalable applications—building across the entire stack with TypeScript, React, React Native, Node.js, Express, PostgreSQL, and Python.",
-    "Backed by hands-on experience in full-stack web and mobile development, algorithmic optimization, and IT risk assurance, I build software that performs under pressure.",
+    "Heyyy, I am a FAST-NUCES Software Engineer turning messy real-world workflows into live products that people actually rely on.",
+    "Shipped numerous full-stack web and mobile builds end-to-end with TypeScript, React, React Native, Node.js, Express, PostgreSQL, and Python, backed by algorithmic rigor and IT risk assurance.",
+    "Now pushing into AI research and ML, tracking cutting-edge AI breakthroughs to build smarter, high-impact systems.",
   ],
   snapshot: [
     "Building full-stack web & mobile apps.",
